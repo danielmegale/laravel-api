@@ -62,7 +62,7 @@ class ProjectController extends Controller
         $project->description = $data['description'];
         $project->save();
 
-        if (Arr::exists($data, 'technologies')) $project->tags()->attach($data['technologies']);
+        if (Arr::exists($data, 'technologies')) $project->technologies()->attach($data['technologies']);
 
         return to_route('admin.projects.show', $project)->with('alert-type', 'success')->with('alert-message', 'Progetto Creato con Successo');
     }
